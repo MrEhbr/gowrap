@@ -8,6 +8,7 @@ import (
 	"io/ioutil"
 	"os"
 	"path/filepath"
+	"regexp"
 	"strings"
 	"text/template"
 
@@ -255,8 +256,9 @@ func varsToArgs(v vars) string {
 }
 
 var helperFuncs = template.FuncMap{
-	"up":   strings.ToUpper,
-	"down": strings.ToLower,
+	"up":    strings.ToUpper,
+	"down":  strings.ToLower,
+	"match": regexp.MatchString,
 }
 
 const headerTemplate = `package {{.Package.Name}}
