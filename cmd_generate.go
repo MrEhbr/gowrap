@@ -256,9 +256,10 @@ func varsToArgs(v vars) string {
 }
 
 var helperFuncs = template.FuncMap{
-	"up":    strings.ToUpper,
-	"down":  strings.ToLower,
-	"match": regexp.MatchString,
+	"up":      strings.ToUpper,
+	"down":    strings.ToLower,
+	"match":   regexp.MatchString,
+	"replace": strings.ReplaceAll,
 }
 
 const headerTemplate = `package {{.Package.Name}}
